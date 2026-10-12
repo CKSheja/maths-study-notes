@@ -71,6 +71,7 @@ Run from the repository folder:
 ```bash
 python calculus/integration_experiment.py
 
-## Attribution
 
+**## Attribution
+**
 MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises are AI-assisted study examples and are not presented as MIT assignments.

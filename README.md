@@ -10,7 +10,6 @@ This repository brings together worked exercises, short explanations and Python 
 
 I work through each question step by step and check the result where possible. Python is useful for numerical checks and for exploring approximations.
 
-The initial notes include AI-assisted worked solutions. I will add my own attempts, corrections and observations as I study.
 
 ## Current exercises
 
@@ -105,10 +104,9 @@ I will record exercises here after attempting them, noting where I got stuck and
 - [MIT OCW 18.06 Linear Algebra, Spring 2010](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — reference for further study.
 - [MIT OCW 18.01SC Single Variable Calculus, Fall 2010](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/) — reference for further study.
 - Selected exercises from MIT OCW 18.06SC Fall 2011 and 18.02SC Fall 2010, credited in the individual files.
-- AI assistance for preparing explanations, worked solutions and Python code.
 
 These are independent study notes, not coursework submitted for university credit.
 
 ## Attribution
 
-MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises and the Python experiment are AI-assisted study examples and are not presented as MIT assignments.
+MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises and the Python experiment are not presented as MIT assignments.

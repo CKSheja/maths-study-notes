@@ -62,6 +62,15 @@ I will record exercises here after attempting them, noting where I got stuck and
 
 These are independent study notes, not coursework submitted for university credit.
 
+## Running the integration experiment
+
+Requires Python 3. No additional packages are needed.
+
+Run from the repository folder:
+
+```bash
+python calculus/integration_experiment.py
+
 ## Attribution
 
 MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises are AI-assisted study examples and are not presented as MIT assignments.

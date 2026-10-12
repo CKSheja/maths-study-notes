@@ -28,15 +28,60 @@ The initial notes include AI-assisted worked solutions. I will add my own attemp
 
 Each MIT exercise note identifies the exact source and links to the published solution.
 
+### Python experiment
+
+- [Numerical integration experiment](calculus/integration_experiment.py)
+
+The script compares midpoint and trapezoidal approximations for three integrals:
+
+- x² from 0 to 1
+- sin(x) from 0 to π
+- eˣ from 0 to 1
+
+It reports the approximations and their absolute errors against known exact answers, using increasing numbers of intervals.
+
+Questions to investigate:
+
+- How does doubling the number of intervals affect the error?
+- Which method overestimates or underestimates each integral?
+- Does one method consistently give a smaller error for these examples?
+
+## Running the integration experiment
+
+Requires Python 3. No additional packages are needed.
+
+Download or clone the repository, then open a terminal in the repository folder and run:
+
+```bash
+python calculus/integration_experiment.py
+```
+
+On Windows, if Python is available through the `py` launcher, use:
+
+```bash
+py calculus/integration_experiment.py
+```
+
+For x² on [0, 1] with four intervals, the expected results are:
+
+| Method | Approximation | Absolute error |
+|---|---:|---:|
+| Midpoint | 0.328125 | 0.005208333 |
+| Trapezoidal | 0.343750 | 0.010416667 |
+
+GitHub displays the script but does not execute it.
+
 ## Topics to study next
 
 ### Linear algebra
+
 - Bases, dimension and linear independence
 - Linear transformations and change of basis
 - Orthogonal projections and least squares
 - Diagonalisation and positive definite matrices
 
 ### Calculus
+
 - Sequences, series and convergence
 - Taylor approximations and error
 - The multivariable chain rule
@@ -44,6 +89,7 @@ Each MIT exercise note identifies the exact source and links to the published so
 - Further constrained optimisation
 
 ### Engineering mathematics
+
 - First-order and second-order differential equations
 - Systems of differential equations
 - Numerical root-finding
@@ -59,19 +105,10 @@ I will record exercises here after attempting them, noting where I got stuck and
 - [MIT OCW 18.06 Linear Algebra, Spring 2010](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — reference for further study.
 - [MIT OCW 18.01SC Single Variable Calculus, Fall 2010](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/) — reference for further study.
 - Selected exercises from MIT OCW 18.06SC Fall 2011 and 18.02SC Fall 2010, credited in the individual files.
+- AI assistance for preparing explanations, worked solutions and Python code.
 
 These are independent study notes, not coursework submitted for university credit.
 
-## Running the integration experiment
+## Attribution
 
-Requires Python 3. No additional packages are needed.
-
-Run from the repository folder:
-
-```bash
-python calculus/integration_experiment.py
-
-
-**## Attribution
-**
-MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises are AI-assisted study examples and are not presented as MIT assignments.
+MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises and the Python experiment are AI-assisted study examples and are not presented as MIT assignments.

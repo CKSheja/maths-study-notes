@@ -10,8 +10,6 @@ This repository brings together worked exercises, short explanations and Python 
 
 I work through questions step by step and check the results where possible. Python is useful for testing calculations and exploring numerical methods.
 
-The initial notes and scripts were prepared with AI assistance. I will add my own attempts, corrections and observations as I study.
-
 ## Current exercises
 
 ### Revision and introductory university topics

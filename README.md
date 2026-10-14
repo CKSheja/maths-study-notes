@@ -4,12 +4,13 @@ I am revisiting mathematics alongside my software engineering studies, building 
 
 I recently started Stanford's Probability for AI course to understand more of the mathematics behind AI. Some concepts are familiar, but I want to go beyond remembering formulas and understand how to derive, apply and connect them.
 
-This repository brings together worked exercises, short explanations and Python checks. It starts with some revision before moving into linear algebra, multivariable calculus and numerical methods.
+This repository brings together worked exercises, short explanations and Python experiments. It starts with some revision before moving into linear algebra, multivariable calculus and numerical methods.
 
 ## Study approach
 
-I work through each question step by step and check the result where possible. Python is useful for numerical checks and for exploring approximations.
+I work through questions step by step and check the results where possible. Python is useful for testing calculations and exploring numerical methods.
 
+The initial notes and scripts were prepared with AI assistance. I will add my own attempts, corrections and observations as I study.
 
 ## Current exercises
 
@@ -19,6 +20,7 @@ I work through each question step by step and check the result where possible. P
 - [Linear systems, null spaces and eigenvalues](linear_algebra/01_vectors_and_matrices.md)
 - [Derivatives, gradients and constrained optimisation](calculus/01_derivatives.md)
 - [Integration and numerical approximation](calculus/02_integration.md)
+- [Gaussian elimination: worked example and algorithm](linear_algebra/03_gaussian_elimination.md)
 
 ### Selected MIT OpenCourseWare exercises
 
@@ -27,48 +29,53 @@ I work through each question step by step and check the result where possible. P
 
 Each MIT exercise note identifies the exact source and links to the published solution.
 
-### Python experiment
+## Python experiments
 
-- [Numerical integration experiment](calculus/integration_experiment.py)
+### Numerical integration
 
-The script compares midpoint and trapezoidal approximations for three integrals:
+[Script](calculus/integration_experiment.py) · [Results and observations](calculus/integration_results.md)
+
+Compares midpoint and trapezoidal approximations for:
 
 - x² from 0 to 1
 - sin(x) from 0 to π
-- eˣ from 0 to 1
+- exp(x) from 0 to 1
 
-It reports the approximations and their absolute errors against known exact answers, using increasing numbers of intervals.
+The experiment increases the number of intervals and reports absolute errors against known exact answers.
 
-Questions to investigate:
+The recorded results came from running the shared script in ChatGPT's Python environment. That execution context is documented in the results file.
 
-- How does doubling the number of intervals affect the error?
-- Which method overestimates or underestimates each integral?
-- Does one method consistently give a smaller error for these examples?
+### Gaussian elimination
 
-## Running the integration experiment
+[Script](linear_algebra/gaussian_elimination.py) · [Worked lesson](linear_algebra/03_gaussian_elimination.md)
+
+Solves small square linear systems using elimination, partial pivoting and back substitution.
+
+The script includes checks for known solutions, a system requiring a row swap and rejection of a singular matrix. It also reports the residual when the computed solution is substituted into the original equations.
+
+This is a learning implementation. It rejects singular or numerically near-singular systems rather than classifying their solution sets.
+
+## Running the scripts
 
 Requires Python 3. No additional packages are needed.
 
-Download or clone the repository, then open a terminal in the repository folder and run:
+Download or clone the repository, then open a terminal in the repository folder.
+
+Run the integration experiment:
 
 ```bash
 python calculus/integration_experiment.py
 ```
 
-On Windows, if Python is available through the `py` launcher, use:
+Run the Gaussian elimination example:
 
 ```bash
-py calculus/integration_experiment.py
+python linear_algebra/gaussian_elimination.py
 ```
 
-For x² on [0, 1] with four intervals, the expected results are:
+On Windows, replace `python` with `py` if your installation uses the Python launcher.
 
-| Method | Approximation | Absolute error |
-|---|---:|---:|
-| Midpoint | 0.328125 | 0.005208333 |
-| Trapezoidal | 0.343750 | 0.010416667 |
-
-GitHub displays the script but does not execute it.
+GitHub displays the scripts but does not execute them.
 
 ## Topics to study next
 
@@ -78,6 +85,7 @@ GitHub displays the script but does not execute it.
 - Linear transformations and change of basis
 - Orthogonal projections and least squares
 - Diagonalisation and positive definite matrices
+- Conditioning and numerical error in linear systems
 
 ### Calculus
 
@@ -104,9 +112,10 @@ I will record exercises here after attempting them, noting where I got stuck and
 - [MIT OCW 18.06 Linear Algebra, Spring 2010](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — reference for further study.
 - [MIT OCW 18.01SC Single Variable Calculus, Fall 2010](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/) — reference for further study.
 - Selected exercises from MIT OCW 18.06SC Fall 2011 and 18.02SC Fall 2010, credited in the individual files.
+- AI assistance for preparing explanations, worked solutions and Python code.
 
 These are independent study notes, not coursework submitted for university credit.
 
 ## Attribution
 
-MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises and the Python experiment are not presented as MIT assignments.
+MIT-derived exercise notes include source links, adaptation notes and their applicable licence. The other exercises are not presented as MIT assignments.

@@ -1,20 +1,24 @@
 # Maths study notes
 
-I am revisiting mathematics alongside my software engineering studies, building on what I learned in high school and studying the concepts in more depth at university level.
+I am revisiting mathematics alongside my software engineering studies.
+High school gave me a foundation in calculus, probability, statistics, algebra and mathematical logic. Some topics are still familiar; others need revision and practice.
 
-I recently started Stanford's Probability for AI course to understand more of the mathematics behind AI. Some concepts are familiar, but I want to go beyond remembering formulas and understand how to derive, apply and connect them.
+I recently started Stanford's Probability for AI course. It has given me a reason to return to these ideas and explore how they are used in AI. Through this repository, I want to strengthen my understanding, work through more demanding problems and connect mathematical methods with code.
 
-This repository brings together worked exercises, short explanations and Python experiments. It starts with some revision before moving into linear algebra, multivariable calculus and numerical methods.
+These notes bring together worked exercises, explanations and small Python experiments. They include revision of familiar material alongside topics I am studying in greater depth, including linear algebra, multivariable calculus and numerical methods.
 
 ## Study approach
 
-I work through questions step by step and check the results where possible. Python is useful for testing calculations and exploring numerical methods.
+I work through questions step by step and check the results where possible. Python helps me compare numerical answers with hand calculations and explore what happens when the inputs or methods change.
+As I work through the material, I will add my own attempts, corrections and observations, including parts I cannot yet solve confidently.
 
 ## Current exercises
 
-### Revision and introductory university topics
+### Revision and further study
 
 - [Functions, domains and exponential growth](precalculus/01_functions.md)
+- [Quadratic functions](precalculus/01_quadratic_function.md)
+- [Vectors and systems](linear_algebra/01_vectors_and_systems.md)
 - [Linear systems, null spaces and eigenvalues](linear_algebra/01_vectors_and_matrices.md)
 - [Derivatives, gradients and constrained optimisation](calculus/01_derivatives.md)
 - [Integration and numerical approximation](calculus/02_integration.md)
@@ -22,8 +26,8 @@ I work through questions step by step and check the results where possible. Pyth
 
 ### Selected MIT OpenCourseWare exercises
 
-- [18.06SC — Nullspaces, Problem 6.3](linear_algebra/02_mit_nullspaces.md)
-- [18.02SC — Partial derivatives, Session 26](calculus/03_mit_partial_derivatives.md)
+- [18.06SC: Nullspaces, Problem 6.3](linear_algebra/02_mit_nullspaces.md)
+- [18.02SC: Partial derivatives, Session 26](calculus/03_mit_partial_derivatives.md)
 
 Each MIT exercise note identifies the exact source and links to the published solution.
 
@@ -75,12 +79,15 @@ On Windows, replace `python` with `py` if your installation uses the Python laun
 
 GitHub displays the scripts but does not execute them.
 
-## Topics to study next
+## Topics to revisit and extend
+
+This is a study plan, not a list of completed topics. Some build on school mathematics; others introduce methods I have not yet worked through.
 
 ### Linear algebra
 
 - Bases, dimension and linear independence
 - Linear transformations and change of basis
+- Systems with one solution, infinitely many solutions or no solution
 - Orthogonal projections and least squares
 - Diagonalisation and positive definite matrices
 - Conditioning and numerical error in linear systems
@@ -88,7 +95,7 @@ GitHub displays the scripts but does not execute them.
 ### Calculus
 
 - Sequences, series and convergence
-- Taylor approximations and error
+- Taylor approximations and error bounds
 - The multivariable chain rule
 - Multiple integrals over nonrectangular regions
 - Further constrained optimisation
@@ -100,15 +107,18 @@ GitHub displays the scripts but does not execute them.
 - Numerical root-finding
 - Numerical methods for differential equations
 
-## Exercises that need more practice
+### Next exercise
 
-I will record exercises here after attempting them, noting where I got stuck and what I need to revisit.
+Compare three linear systems: one with a unique solution, one with infinitely many solutions and one with no solution.
+
+Work through their row reductions by hand, then examine how the current Gaussian elimination script responds to each case. Use the results to understand the limitations of the implementation before extending it.
+
 
 ## Support and sources
 
-- Stanford's Probability for AI — currently in progress. These repository exercises are separate from the course assignments.
-- [MIT OCW 18.06 Linear Algebra, Spring 2010](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) — reference for further study.
-- [MIT OCW 18.01SC Single Variable Calculus, Fall 2010](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/) — reference for further study.
+- Stanford's Probability for AI: currently in progress. These repository exercises are separate from the course assignments.
+- [MIT OCW 18.06 Linear Algebra, Spring 2010](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/): reference for further study.
+- [MIT OCW 18.01SC Single Variable Calculus, Fall 2010](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/): reference for further study.
 - Selected exercises from MIT OCW 18.06SC Fall 2011 and 18.02SC Fall 2010, credited in the individual files.
 - AI assistance for preparing explanations, worked solutions and Python code.
 

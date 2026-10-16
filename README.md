@@ -1,16 +1,14 @@
 # Maths study notes
 
-I am revisiting mathematics alongside my software engineering studies.
-High school gave me a foundation in calculus, probability, statistics, algebra and mathematical logic. Some topics are still familiar; others need revision and practice.
+I am revisiting mathematics alongside my software engineering studies. High school gave me a foundation in calculus, probability, statistics, algebra and mathematical logic. Some topics are still familiar; others need revision and practice.
 
 I recently started Stanford's Probability for AI course. It has given me a reason to return to these ideas and explore how they are used in AI. Through this repository, I want to strengthen my understanding, work through more demanding problems and connect mathematical methods with code.
 
-These notes bring together worked exercises, explanations and small Python experiments. They include revision of familiar material alongside topics I am studying in greater depth, including linear algebra, multivariable calculus and numerical methods.
+These notes bring together worked exercises, explanations and small Python experiments. They include revision alongside deeper study of linear algebra, multivariable calculus and numerical methods.
 
 ## Study approach
 
-I work through questions step by step and check the results where possible. Python helps me compare numerical answers with hand calculations and explore what happens when the inputs or methods change.
-As I work through the material, I will add my own attempts, corrections and observations, including parts I cannot yet solve confidently.
+Each lesson connects a mathematical question with worked calculations and, where useful, a Python implementation. I want to understand why the method works, check its results and explore its limitations by changing the inputs.
 
 ## Current exercises
 
@@ -31,6 +29,17 @@ As I work through the material, I will add my own attempts, corrections and obse
 
 Each MIT exercise note identifies the exact source and links to the published solution.
 
+## Next two study sessions
+
+These are planned sessions. I will record completion and observations after working through them.
+
+| Planned date | Lesson | Main question |
+| --- | --- | --- |
+| 16 October 2026 | [Linear systems: three possible outcomes](linear_algebra/04_solution_types.md) | How do row operations distinguish one, infinitely many or no solutions? |
+| 16 October 2026 | [From derivatives to a numerical algorithm](calculus/04_numerical_derivatives.md) | How does step size affect a derivative approximation? |
+
+Both lessons include worked answers, an algorithm, code and further examples to explore. The dates are a guide; I can spend longer on a lesson where needed.
+
 ## Python experiments
 
 ### Numerical integration
@@ -45,7 +54,7 @@ Compares midpoint and trapezoidal approximations for:
 
 The experiment increases the number of intervals and reports absolute errors against known exact answers.
 
-The recorded results came from running the shared script in ChatGPT's Python environment. That execution context is documented in the results file.
+The recorded integration results came from running the shared script in ChatGPT's Python environment. That execution context is documented in the results file.
 
 ### Gaussian elimination
 
@@ -53,15 +62,33 @@ The recorded results came from running the shared script in ChatGPT's Python env
 
 Solves small square linear systems using elimination, partial pivoting and back substitution.
 
-The script includes checks for known solutions, a system requiring a row swap and rejection of a singular matrix. It also reports the residual when the computed solution is substituted into the original equations.
+Checks include known solutions, a row swap and rejection of a singular matrix. The script also reports the residual when the computed solution is substituted into the original equations.
 
-This is a learning implementation. It rejects singular or numerically near-singular systems rather than classifying their solution sets.
+This earlier implementation rejects singular or numerically near-singular systems rather than classifying their solution sets.
+
+### Classifying linear systems
+
+[Script](linear_algebra/classify_systems.py) · [Worked lesson](linear_algebra/04_solution_types.md)
+
+Uses exact fractions and Gauss–Jordan elimination to classify small systems and display row operations.
+
+For consistent systems, it returns a particular solution and directions for any free variables. It checks these against the original equations.
+
+This is a separate learning implementation. It does not replace the earlier floating-point solver or model uncertainty in measured inputs.
+
+### Numerical derivatives
+
+[Script](calculus/numerical_derivatives.py) · [Worked lesson](calculus/04_numerical_derivatives.md)
+
+Compares forward and central differences for a quadratic, sine and an exponential.
+
+It reports errors against exact derivatives over several step sizes, including very small steps where rounding can become important.
 
 ## Running the scripts
 
 Requires Python 3. No additional packages are needed.
 
-Download or clone the repository, then open a terminal in the repository folder.
+Download or clone the repository and open a terminal in its root folder.
 
 Run the integration experiment:
 
@@ -69,10 +96,22 @@ Run the integration experiment:
 python calculus/integration_experiment.py
 ```
 
-Run the Gaussian elimination example:
+Run the original Gaussian elimination example:
 
 ```bash
 python linear_algebra/gaussian_elimination.py
+```
+
+Run the solution classification examples:
+
+```bash
+python linear_algebra/classify_systems.py
+```
+
+Run the numerical derivative experiment:
+
+```bash
+python calculus/numerical_derivatives.py
 ```
 
 On Windows, replace `python` with `py` if your installation uses the Python launcher.
@@ -87,7 +126,6 @@ This is a study plan, not a list of completed topics. Some build on school mathe
 
 - Bases, dimension and linear independence
 - Linear transformations and change of basis
-- Systems with one solution, infinitely many solutions or no solution
 - Orthogonal projections and least squares
 - Diagonalisation and positive definite matrices
 - Conditioning and numerical error in linear systems
@@ -106,12 +144,6 @@ This is a study plan, not a list of completed topics. Some build on school mathe
 - Systems of differential equations
 - Numerical root-finding
 - Numerical methods for differential equations
-
-### Next exercise
-
-Compare three linear systems: one with a unique solution, one with infinitely many solutions and one with no solution.
-
-Work through their row reductions by hand, then examine how the current Gaussian elimination script responds to each case. Use the results to understand the limitations of the implementation before extending it.
 
 
 ## Support and sources

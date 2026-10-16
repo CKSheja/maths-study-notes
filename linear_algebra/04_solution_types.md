@@ -1,12 +1,5 @@
 # Linear systems: three possible outcomes
 
-This is prepared study material.
-
-## Goal
-
-Understand how elimination tells us whether a system has one solution, infinitely many solutions or no solution. Then connect these calculations to a Python algorithm.
-
-Prerequisites: simultaneous equations, matrix rows and basic elimination.
 
 ## Exercise 1: one solution
 

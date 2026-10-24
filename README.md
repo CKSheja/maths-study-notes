@@ -30,6 +30,7 @@ Python is useful for comparing methods, testing calculations and seeing how resu
 - [Classifying linear systems: unique, infinite or no solution](linear_algebra/04_solution_types.md)
 - [Numerical derivatives and approximation error](calculus/04_numerical_derivatives.md)
 - [Least squares: when the equations do not agree](linear_algebra/05_least_squares.md)
+- [Taylor approximations: choosing enough terms](calculus/05_taylor_approximations.md)
 
 ### Selected MIT OpenCourseWare exercises
 
@@ -38,15 +39,15 @@ Python is useful for comparing methods, testing calculations and seeing how resu
 
 Each MIT exercise note identifies the exact source and links to the published solution.
 
-## Latest addition: least squares
+## Latest addition: Taylor approximations
 
-The new lesson fits a straight line to three points that cannot all lie on the same line.
+The new lesson builds a polynomial for eˣ from its derivatives at zero.
 
-It derives the normal equations using partial derivatives, solves for the intercept and slope, and checks the residuals.
+It works through approximations of e and e⁻¹, derives a remainder bound and uses that bound to choose a polynomial degree for a target error.
 
-The Python script implements the centred straight-line fitting formula. It connects the matrix calculation to an algorithm and checks the condition Aᵀr = 0.
+The accompanying script generates each term from the previous one and compares the approximation with Python's math.exp.
 
-This follows the earlier work on linear systems: first finding exact solutions, then studying what to do when no exact solution exists.
+This extends the numerical differentiation and integration exercises by asking how we can justify an approximation's accuracy before measuring its error.
 
 ## Python experiments
 
@@ -62,6 +63,7 @@ Compares midpoint and trapezoidal approximations for:
 
 The experiment increases the number of intervals and reports absolute errors against known exact answers.
 
+The recorded results came from running the shared script in ChatGPT's Python environment. That execution context is documented in the results file.
 
 ### Gaussian elimination
 
@@ -106,6 +108,23 @@ The examples include:
 
 This implementation fits a line with an intercept. It is not a general least-squares solver.
 
+### Taylor approximation of the exponential function
+
+[Script](calculus/taylor_exp.py) · [Worked lesson](calculus/05_taylor_approximations.md)
+
+Approximates eˣ at x = −1, 0.5 and 1 using Taylor polynomials centred at zero.
+
+The script:
+
+- Generates terms using a recurrence
+- Compares several polynomial degrees
+- Reports absolute errors and theoretical remainder bounds
+- Finds the first degree certified by the bound for a chosen tolerance
+
+The lesson distinguishes polynomial degree from number of terms, and truncation error from floating-point rounding.
+
+The implementation is restricted to inputs from −1 to 1. It is a study experiment rather than a replacement for math.exp.
+
 ## Running the scripts
 
 Requires Python 3. No additional packages are needed.
@@ -142,6 +161,12 @@ Run the least-squares example:
 python linear_algebra/least_squares.py
 ```
 
+Run the Taylor approximation experiment:
+
+```bash
+python calculus/taylor_exp.py
+```
+
 On Windows, replace `python` with `py` if your installation uses the Python launcher.
 
 GitHub displays the scripts but does not execute them.
@@ -159,28 +184,32 @@ GitHub displays the scripts but does not execute them.
 
 ### Calculus
 
-- Sequences, series and convergence
-- Taylor approximations and error
+- Sequences, series and convergence tests
+- Taylor expansions around points other than zero
+- Using Taylor expansions to analyse numerical methods
 - The multivariable chain rule
 - Multiple integrals over nonrectangular regions
 - Further constrained optimisation
 
 ### Engineering mathematics
 
+- Numerical root-finding
 - First-order and second-order differential equations
 - Systems of differential equations
-- Numerical root-finding
 - Numerical methods for differential equations
 
 ## Exercises that need more practice
 
+I will record exercises here after attempting them, noting where I got stuck and what I need to revisit.
 
-Questions to return to in the least-squares lesson:
+Questions to return to in the recent lessons:
 
-- Why does Aᵀr = 0 describe the best fit?
+- Why does Aᵀr = 0 describe the least-squares solution?
 - Why do distinct x values give a unique fitted line?
-- How does an outlier change the result?
-- Why might forming AᵀA cause numerical difficulties in larger problems?
+- How does an outlier change a fitted line?
+- What is the difference between an error bound and the actual error?
+- Why does a degree-n Taylor polynomial contain n + 1 terms?
+- When does increasing the degree stop helping because of numerical rounding?
 
 ## Support and sources
 

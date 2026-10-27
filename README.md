@@ -20,17 +20,24 @@ Python is useful for comparing methods, testing calculations and seeing how resu
 
 ## Current exercises
 
-### Revision and introductory university topics
+### Revision
 
 - [Functions, domains and exponential growth](precalculus/01_functions.md)
+
+### Linear algebra
+
 - [Linear systems, null spaces and eigenvalues](linear_algebra/01_vectors_and_matrices.md)
-- [Derivatives, gradients and constrained optimisation](calculus/01_derivatives.md)
-- [Integration and numerical approximation](calculus/02_integration.md)
 - [Gaussian elimination: worked example and algorithm](linear_algebra/03_gaussian_elimination.md)
 - [Classifying linear systems: unique, infinite or no solution](linear_algebra/04_solution_types.md)
-- [Numerical derivatives and approximation error](calculus/04_numerical_derivatives.md)
 - [Least squares: when the equations do not agree](linear_algebra/05_least_squares.md)
+
+### Calculus and numerical methods
+
+- [Derivatives, gradients and constrained optimisation](calculus/01_derivatives.md)
+- [Integration and numerical approximation](calculus/02_integration.md)
+- [Numerical derivatives and approximation error](calculus/04_numerical_derivatives.md)
 - [Taylor approximations: choosing enough terms](calculus/05_taylor_approximations.md)
+- [Root finding: bisection and Newton's method](calculus/06_root_finding.md)
 
 ### Selected MIT OpenCourseWare exercises
 
@@ -39,15 +46,15 @@ Python is useful for comparing methods, testing calculations and seeing how resu
 
 Each MIT exercise note identifies the exact source and links to the published solution.
 
-## Latest addition: Taylor approximations
+## Latest addition: root finding
 
-The new lesson builds a polynomial for eˣ from its derivatives at zero.
+The new lesson compares bisection with Newton's method.
 
-It works through approximations of e and e⁻¹, derives a remainder bound and uses that bound to choose a polynomial degree for a target error.
+It first solves x² − 2 = 0 using both methods, then examines a cubic for which Newton cycles between zero and one from the chosen starting point.
 
-The accompanying script generates each term from the previous one and compares the approximation with Python's math.exp.
+The lesson connects Taylor approximation to Newton's update and explains why a small function residual is not necessarily a small error in the root.
 
-This extends the numerical differentiation and integration exercises by asking how we can justify an approximation's accuracy before measuring its error.
+The script records Newton's iterates and reports an interval-based error bound for bisection.
 
 ## Python experiments
 
@@ -63,7 +70,6 @@ Compares midpoint and trapezoidal approximations for:
 
 The experiment increases the number of intervals and reports absolute errors against known exact answers.
 
-The recorded results came from running the shared script in ChatGPT's Python environment. That execution context is documented in the results file.
 
 ### Gaussian elimination
 
@@ -71,9 +77,9 @@ The recorded results came from running the shared script in ChatGPT's Python env
 
 Solves small square linear systems using elimination, partial pivoting and back substitution.
 
-The script includes checks for known solutions, a system requiring a row swap and rejection of a singular matrix. It also reports the residual when the computed solution is substituted into the original equations.
+The examples check known solutions, a required row swap and rejection of a singular matrix. The script also reports the residual after substituting the computed solution into the original equations.
 
-This is a learning implementation. It rejects singular or numerically near-singular systems rather than classifying their solution sets.
+This implementation rejects singular or numerically near-singular systems rather than classifying their solution sets.
 
 ### Classifying linear systems
 
@@ -89,7 +95,7 @@ For systems with free variables, it describes how the solutions depend on those 
 
 Compares forward and central differences with known derivatives.
 
-The examples explore how the step size affects approximation error and why continually reducing it does not always improve a floating-point calculation.
+The examples explore how step size affects approximation error and why continually reducing it does not always improve a floating-point calculation.
 
 ### Least-squares line fitting
 
@@ -97,14 +103,9 @@ The examples explore how the step size affects approximation error and why conti
 
 Fits a line to observations that do not agree exactly.
 
-The script reports the intercept, slope, predictions, residuals and sum of squared errors. It also checks that the residual vector is approximately orthogonal to the columns of the design matrix.
+The script reports the intercept, slope, predictions, residuals and sum of squared errors. It checks that the residual vector is approximately orthogonal to the columns of the design matrix.
 
-The examples include:
-
-- Three points with no exact straight-line fit
-- Points that lie exactly on a line
-- Repeated x values
-- Rejection of a fit where all x values are equal
+The examples include an exact fit, an imperfect fit, repeated x values and rejection when all x values are equal.
 
 This implementation fits a line with an intercept. It is not a general least-squares solver.
 
@@ -114,16 +115,26 @@ This implementation fits a line with an intercept. It is not a general least-squ
 
 Approximates eˣ at x = −1, 0.5 and 1 using Taylor polynomials centred at zero.
 
-The script:
+The script generates terms using a recurrence, compares polynomial degrees and reports errors and remainder bounds. It also selects the first degree certified by the bound for a chosen tolerance.
 
-- Generates terms using a recurrence
-- Compares several polynomial degrees
-- Reports absolute errors and theoretical remainder bounds
-- Finds the first degree certified by the bound for a chosen tolerance
+The implementation is restricted to inputs from −1 to 1. The lesson distinguishes truncation error from floating-point rounding.
 
-The lesson distinguishes polynomial degree from number of terms, and truncation error from floating-point rounding.
+### Bisection and Newton's method
 
-The implementation is restricted to inputs from −1 to 1. It is a study experiment rather than a replacement for math.exp.
+[Script](calculus/root_finding.py) · [Worked lesson](calculus/06_root_finding.md)
+
+Solves x² − 2 = 0 using both methods.
+
+A second example, x³ − 2x + 2 = 0, shows Newton cycling between zero and one while bisection finds a root in a different starting interval.
+
+The script checks:
+
+- Agreement with the known value of √2
+- Newton's cycle from the chosen starting point
+- Stopping when the derivative is zero
+- Rejection of an interval without opposite endpoint signs
+
+Bisection uses an interval-width stopping condition. Newton uses a residual target and a step limit.
 
 ## Running the scripts
 
@@ -131,40 +142,34 @@ Requires Python 3. No additional packages are needed.
 
 Download or clone the repository, then open a terminal in the repository folder.
 
-Run the integration experiment:
+Choose the experiment you want to run:
 
 ```bash
 python calculus/integration_experiment.py
 ```
 
-Run the Gaussian elimination example:
-
 ```bash
 python linear_algebra/gaussian_elimination.py
 ```
-
-Run the linear-system classification examples:
 
 ```bash
 python linear_algebra/classify_systems.py
 ```
 
-Run the numerical derivative experiment:
-
 ```bash
 python calculus/numerical_derivatives.py
 ```
-
-Run the least-squares example:
 
 ```bash
 python linear_algebra/least_squares.py
 ```
 
-Run the Taylor approximation experiment:
-
 ```bash
 python calculus/taylor_exp.py
+```
+
+```bash
+python calculus/root_finding.py
 ```
 
 On Windows, replace `python` with `py` if your installation uses the Python launcher.
@@ -193,23 +198,23 @@ GitHub displays the scripts but does not execute them.
 
 ### Engineering mathematics
 
-- Numerical root-finding
-- First-order and second-order differential equations
+- First-order differential equations
+- Euler's method and step-size error
+- Second-order differential equations
 - Systems of differential equations
-- Numerical methods for differential equations
+- Stability of numerical methods
 
 ## Exercises that need more practice
-
-I will record exercises here after attempting them, noting where I got stuck and what I need to revisit.
 
 Questions to return to in the recent lessons:
 
 - Why does Aᵀr = 0 describe the least-squares solution?
-- Why do distinct x values give a unique fitted line?
 - How does an outlier change a fitted line?
 - What is the difference between an error bound and the actual error?
-- Why does a degree-n Taylor polynomial contain n + 1 terms?
-- When does increasing the degree stop helping because of numerical rounding?
+- When does increasing a Taylor polynomial's degree stop helping?
+- Why does bisection require continuity?
+- Why can Newton's method cycle even when its derivative is nonzero?
+- How does a function residual differ from an error in the estimated root?
 
 ## Support and sources
 
